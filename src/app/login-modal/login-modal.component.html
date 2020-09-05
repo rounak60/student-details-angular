@@ -1,0 +1,32 @@
+<!-- <form [formGroup]="loginForm">
+    <div class="input-container">
+        <input type="text" class="inputText" name="name" formControlName="name" required />
+        <span class="floating-label">Email/Username</span>
+    </div>
+    <div class="input-container">
+        <input type="password" class="inputText" name="password" formControlName="password" required />
+        <span class="floating-label">Password</span>
+    </div>
+    <div class="error-message">
+        <span *ngIf="isCorrect">{{loginErrorMessage}}</span>
+    </div>
+    <div class="button-container">
+        <button class="forget-password" (click)="modalForgetPass()"> Forget Password </button>
+        <button class="login-button" (click)="submit()">Login</button>
+    </div>
+</form> -->
+
+<ng-template #mymodal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Bootstrap Modal</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      This is the BODY
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+    </div>
+  </ng-template>

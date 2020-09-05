@@ -1,0 +1,126 @@
+<div class = "header__container">
+    <div class="header__leftSubCon">
+        <a class="student-button" href="#" aria-label="Go to student home">student</a>
+    </div>
+    <div class="header__rightSubCon">
+
+        <button class="login-button username_button" role="button" *ngIf ="isLoggedIn">{{loggedInUserName}}</button>
+
+
+        <button class="login-button" role="button" (click)="openLoginModal(loginModal)" *ngIf ="!isLoggedIn">login</button>
+        <ng-template #loginModal let-modal>
+            <form [formGroup]="loginForm" (ngSubmit)="onLogin()" >
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modal-basic-title">Login</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true">X</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-container">
+                        <input type="text" class="inputText" name="name" formControlName="name"  required />
+                        <span class="floating-label">Email/Username</span>
+                    </div>
+                    <div class="input-container">
+                        <input type="password" class="inputText" name="password" formControlName= "password" required />
+                        <span class="floating-label">Password</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="error-message">
+                        <span *ngIf="isCorrect">{{loginErrorMessage}}</span>
+                    </div>
+                    <button type="button" class="forget-password"  (click)="openForgetPasswordModal(forgetPasswordModal)"> Forget Password ? </button>
+                    
+
+                    <div class="login-button-container">
+                        <button type="submit" class="btn btn-outline-dark modal-login-button" [disabled]="!loginForm.valid"  >Login</button>
+                    </div>
+                </div>
+            </form>
+        </ng-template>
+
+        <ng-template #forgetPasswordModal let-modal>
+            <form [formGroup]="forgetPassForm" (ngSubmit)="onForgetPassword()" >
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modal-basic-title">Forgot Password</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true">X</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="input-container">
+                        <input type="text" class="inputText" name="email" formControlName="email"  required />
+                        <span class="floating-label">Email</span>
+                    </div>
+                    <div class="input-container">
+                        <input type="password" class="inputText" name="password" formControlName= "password" required />
+                        <span class="floating-label">Password</span>
+                    </div>
+                    <div class="input-container">
+                        <input type="password" class="inputText" name="changePassword"  required />
+                        <span class="floating-label">Confirm Password</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="error-message">
+                        <span *ngIf="isCorrect">        </span>
+                    </div>
+                    <div class="login-button-container">
+                        <button type="submit" class="btn btn-outline-dark modal-login-button" [disabled]="!forgetPassForm.valid"  >Login</button>
+                    </div>
+                </div>
+            </form>
+        </ng-template>
+
+        <button class="signup-button" role="button" (click)="openSignupModal(signupModal)" *ngIf ="!isLoggedIn">sign up</button>
+        <ng-template #signupModal let-modal>
+        <form [formGroup]="signupForm" (ngSubmit)="onSignUp()">
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">Sign Up</h4>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">X</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="input-container">
+                    <input type="text" class="inputText" name="email" formControlName="email"  required />
+                    <span class="floating-label">Email</span>
+                </div>
+                <div class="input-container">
+                    <input type="text" class="inputText" name="name" formControlName="name"  required />
+                    <span class="floating-label">User Name</span>
+                </div>
+                <div class="input-container">
+                    <select class="inputText"  name="role" formControlName="role" required>
+                        <option *ngFor="let role of roles" class="floating-label"  [ngValue]="role">{{role}}</option>
+                     </select>
+                    <span class="floating-label dropdown_role">Role</span>
+
+                </div>
+                <div class="input-container">
+                    <input type="password" class="inputText" name="password" formControlName="password"  required />
+                    <span class="floating-label">Password</span>
+                </div>
+                <div class="input-container">
+                    <input type="password" class="inputText" name="password"   required />
+                    <span class="floating-label">Confirm Password</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="footer-content">
+                    <div class = "error-message">
+                        <span *ngIf="isCorrect">{{errorMsg}}</span>
+                    </div>
+                    <input type="checkbox" class="inputCheckBox" name="signUpCheckbox" formControlName="check"  required/>
+                    <span class="SignUpTerms">I read and agree to <a href = "#">Terms and Condition</a></span>
+                </div>
+                <div class="footer-content">
+                    <button class="modal-signup-button" type="submit" [disabled]="!signupForm.valid" >Sign up</button>
+                    <div class="loginRedirection"><span>Already have a account?</span><button type="button" class="loginButton" (click)="openLoginModal(loginModal)"> Login </button></div>
+                </div>
+            </div>
+            </form>
+        </ng-template>
+    </div>
+</div>

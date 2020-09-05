@@ -1,0 +1,26 @@
+<div class="table__mainContainer fixed-container">
+    <table class="table__container">
+        <thead class="header__section">
+            <tr class="header__row-section">
+                <th class="heading">Student name</th>
+                <th class="heading">Registration No</th>
+                <th class="heading">Class</th>
+                <th class="heading no-border">Grade</th>
+                <th class="heading no-border header-next-icon"></th>
+            </tr>
+        </thead>
+        <tbody class="body__section">
+            <tr *ngFor = "let student of studentDetails; index as i" [ngClass]="(i%2 == 0) ? 'even-row':'odd-row'" class="body__row-section" >
+                <td>{{student.Name}}</td>
+                <td>{{student.RegestrationNo}}</td>
+                <td>{{student.Class}}th</td>
+                <td>{{student.Division}}</td>
+                <td class="nextIcon__container"> 
+                    <button class="next-icon" (click)="onClick(student)" routerLink="/details">
+                        <img src="../../assets/icons/icon-next.png">
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

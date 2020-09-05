@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+    background: linear-gradient(90deg, #6A11CB, #2575FC);;
+}
+.fixed-container {
+    max-width: 1076px;
+    margin: 0 auto;
+}

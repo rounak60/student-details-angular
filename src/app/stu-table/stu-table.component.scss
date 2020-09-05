@@ -1,0 +1,57 @@
+.table__mainContainer {
+    padding: 50px 0;
+    // background: linear-gradient(90deg, #6A11CB, #2575FC);
+    .table__container {
+        background-color: white;
+        width: 100%;
+        border-spacing: 0;
+        .header__section {
+            .header__row-section {
+                text-align: left;
+                background: #000;
+                color: #fff;
+                font-family:  Helvetica;
+                .heading {
+                    padding: 24px 0px 24px 15px;
+                    color: #2E9CCA;
+                    font-size: 24px;
+                    font-weight: normal;
+                    border-right: 1px solid #707070;
+                    width: 25%;
+                }
+                .heading.no-border {
+                    border-right: 0;
+                    width: 10%;
+                }
+                .heading.no-border.header-next-icon {
+                    width: 7%;
+                }
+            } 
+        }
+        .body__section {
+            .body__row-section {
+                font-size: 24px;
+                font-family: Helvetica;
+                td {
+                    padding: 22px 15px;
+                }
+                td.nextIcon__container {
+                    .next-icon {
+                        cursor: pointer;
+                        background: none;
+                        border: 0;
+                        outline: none;
+                    }
+                }
+            }
+            .odd-row{
+                background: #F2F2F2;
+            }
+            .even-row{
+                background: #FFFFFF;
+                color: #464866;
+                box-shadow: 0px 1px 0px #FFFFFF;
+            }
+        }
+    }
+}
