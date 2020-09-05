@@ -115,6 +115,7 @@ export class HeaderComponent implements OnInit {
   get validateEmail(){
     return this.signupForm.get('email')
   }
+  //doing test for git
   get validateForPassEmail() {
     return this.forgetPassForm.get('email');
   }
