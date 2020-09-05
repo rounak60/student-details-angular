@@ -1,6 +1,9 @@
  <div class="backButtonContainer"><button class = "back-button" (click)="goBack()"> &lt; back</button></div>
 <section>
     <mat-horizontal-stepper linear #stepper>
+        <ng-template matStepperIcon="edit">
+            <mat-icon role="img" class="mat-icon notranslate material-icons mat-icon-no-color ng-star-inserted" aria-hidden="true"></mat-icon>
+        </ng-template>
         <ng-container *ngFor = "let step of steps;index as i">
             <mat-step label={{step.name}} [editable]="true">
                 <div class="stepperHeadingContainer"> 
@@ -27,5 +30,4 @@
             </mat-step>
         </ng-container>
     </mat-horizontal-stepper>
-    
 </section> 
