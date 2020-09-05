@@ -2,37 +2,5 @@
 <button class = "back-button" (click)="goBack()" > 
     <img src="../../assets/icons/icon-back.png" alt=""> back</button>
 
-<div class="stuDetails__container">
-    <h1>Student Details</h1>
-    <div class="details__container">
-        <div class="left-section">
-            <div class="left-detail-tile">
-                <div class="detail-title">Student name</div>
-                <div class="detail-title">Class</div>
-                <div class="detail-title">Division</div>
-                <div class="detail-title">Rank</div>
-            </div>
-            <div class="left-detail">
-                <div class="detail">{{resultDetail.Name}}</div>
-                <div class="detail">{{resultDetail.Class}}</div>
-                <div class="detail">{{resultDetail.Division}}</div>
-                <div class="detail">{{resultDetail.Rank}}</div>
-            </div>  
-        </div>
-        <div class="right-section">
-            <div class="right-detail-tile">
-                <div class="detail-title">Fees</div>
-                <div class="detail-title">Due Date</div>
-                <div class="detail-title">Contact no</div>
-                <div class="detail-title">Address</div>
-            </div>
-            <div class="right-detail">
-                <div class="detail">{{resultDetail.Fee}}</div>
-                <div class="detail">{{resultDetail.DueDate}}</div>
-                <div class="detail">{{resultDetail.ContactNo}}</div>
-                <div class="detail">{{resultDetail.Address}}</div>
-            </div>
-        </div>
-    </div>
-</div>
+    <app-details></app-details>
 </div>

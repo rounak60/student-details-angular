@@ -1,8 +1,8 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { NgbModal, ModalDismissReasons,NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
-import { FormControl,  FormGroup } from '@angular/forms';
-import {LoginService} from '../login.service'
+import { FormControl,  FormGroup, Validators } from '@angular/forms';
+import {LoginService} from '../login.service';
 
 
 @Component({
@@ -22,6 +22,7 @@ export class HeaderComponent implements OnInit {
 
   isLoggedIn = false;
   loggedInUserName;
+  closeResult: string;
 
   loginForm = new FormGroup({
       name: new FormControl(''),
@@ -29,24 +30,20 @@ export class HeaderComponent implements OnInit {
     });
 
   signupForm = new FormGroup({
-      email : new FormControl(''),
+      email : new FormControl('',[Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]),
       name : new FormControl(''),
       role : new FormControl(''),
       password : new FormControl(''),
       check : new FormControl(''),
   });
   forgetPassForm = new FormGroup({
-    email: new FormControl(''),
+    email: new FormControl('',[Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]),
     password: new FormControl(''),
-    
   });
 
-
-  closeResult: string;
   constructor(private modalService: NgbModal, private router: Router, private signUpService : LoginService, private loginService : LoginService, private changePassService: LoginService) { }
 
   ngOnInit(): void {
-    
   }
 
   openLoginModal(content) { 
@@ -55,9 +52,11 @@ export class HeaderComponent implements OnInit {
     if (this.signupModalRef) {
     this.signupModalRef.close();
     }
+    this.loginForm.reset();
   };
   openSignupModal(content) {
-    this.signupModalRef = this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title', backdropClass: 'modalBgColor'})
+    this.signupModalRef = this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title', backdropClass: 'modalBgColor'});
+    this.signupForm.reset();
   };
   openForgetPasswordModal(content) {
     this.forgotPassModalRef =  this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title',centered: true, backdropClass: 'modalBgColor'});
@@ -65,6 +64,7 @@ export class HeaderComponent implements OnInit {
     if(this.loginModalRef) {
       this.loginModalRef.close();
     }
+    this.forgetPassForm.reset();
   };
   
   onLogin() {
@@ -82,7 +82,7 @@ export class HeaderComponent implements OnInit {
     if(this.loginModalRef) {
       this.loginModalRef.close();
     }
-
+    this.loginForm.reset();
 }
   onSignUp() {
     this.signUpService.getsignUpDetails(this.signupForm.value).subscribe(
@@ -91,13 +91,12 @@ export class HeaderComponent implements OnInit {
       },
       (error) => {
         this.errorMsg = error.error.error;
-        console.log(error.error.error);
       }
     );
     if (this.signupModalRef) {
       this.signupModalRef.close();
-      }
-      this.signupForm.reset();
+    }
+    this.signupForm.reset();
   }
   onForgetPassword() {
      this.changePassService.changePassReq(this.forgetPassForm.value).subscribe(
@@ -106,13 +105,17 @@ export class HeaderComponent implements OnInit {
       },
       (error) => {
         this.errorMsg = error.error.error;
-        console.log(error.error.error);
       }
     );
     if(this.forgotPassModalRef) {
       this.forgotPassModalRef.close();
     }
+    this.forgetPassForm.reset();
   }
-  
-
+  get validateEmail(){
+    return this.signupForm.get('email')
+  }
+  get validateForPassEmail() {
+    return this.forgetPassForm.get('email');
+  }
 }

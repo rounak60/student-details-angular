@@ -20,5 +20,9 @@ export class StudentsService {
   getStudents(): Observable<Students[]> {
     return this.http.get<Students[]>('http://localhost:3001/school/student-details');
   }
+
+  editDetailsPostReq(data: any): Observable<any> {
+    return this.http.post<any>('http://localhost:3001/student-details', data);  
+  }
    
 }

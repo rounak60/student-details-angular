@@ -42,6 +42,7 @@
     display: block;
     text-align: center;
     padding-bottom: 0;
+    padding-top: 40px;
     #modal-basic-title.modal-title {
         text-align: center;
         font-size: 40px;
@@ -53,14 +54,6 @@
         right: 49px;
         top: 40px;
         padding: 0;
-        span {
-            background: linear-gradient(180deg, #6A11CB 0%, #2575FC 100%) 0% 0% no-repeat padding-box;
-            color: transparent;
-            font-weight: normal;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: none;
-        }
     }
 }
 .modal-body {

@@ -1,8 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Location } from '@angular/common';
-
-import { StudentsService } from '../students.service';
-import { TypeCheckCompiler } from '@angular/compiler/src/view_compiler/type_check_compiler';
 
 @Component({
   selector: 'app-stu-details',
@@ -11,19 +8,13 @@ import { TypeCheckCompiler } from '@angular/compiler/src/view_compiler/type_chec
 })
 export class StuDetailsComponent implements OnInit {
 
-  stuAllDetails = [];
-  resultDetail;
-  constructor(private stuCompDetails : StudentsService, private location: Location) { }
+  constructor(private location: Location) { }
 
-  ngOnInit(): void {
-
-     this.stuCompDetails.serviceRecordProvider$.subscribe(  result => { 
-      this.resultDetail = result;
-     }
-    
-    )};
+  ngOnInit(): void {    
+    }
   goBack(): void {
     this.location.back();
   }
+  
   
 }

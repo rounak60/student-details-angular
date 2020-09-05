@@ -1,0 +1,79 @@
+.back-button{
+    background: none;
+    font-weight: bold;
+    color:white;
+    margin: 10px 0;
+    border: none;
+    outline: none;
+    font-size: 24px;
+}
+.stepperButton{
+    background: transparent linear-gradient(90deg, #6A11CB 0%, #5036DD 37%, #4448E6 55%, #2575FC 100%);
+    box-shadow: 0px 1px 3px #00000033;
+    border-radius: 4px;
+    color: white;
+    margin: 0px 10px;
+    outline: none;
+    &:disabled{
+        background:#707070;
+        cursor: not-allowed;
+    }
+}
+.stepperButton.cancel{
+    background: #D7D9DB;
+    color: #36424A;
+    border: 0;
+    outline: none;
+}
+.stepperButton.cancel:hover {
+    background: #D7D9DB;
+}
+::ng-deep .mat-horizontal-stepper-header-container {
+    background: transparent linear-gradient(90deg, #1CE5BF 0%, #2E9CCA 100%);
+    padding: 0px 100px;
+}
+::ng-deep .mat-horizontal-content-container{
+    padding: 0 !important;
+}
+::ng-deep .mat-step-header{
+    padding:0px 30px;
+}
+.backButtonContainer{
+    background: transparent linear-gradient(90deg, #1CE5BF 0%, #2E9CCA 100%);
+    padding: 30px 100px 0px;
+}
+.mat-stepper-vertical, .mat-stepper-horizontal{
+    background: none;
+}
+.stepperHeadingContainer{
+    padding: 10px 0px;
+    // width: 80%;
+    margin: 30px auto;
+    max-width: 1076px;
+    .stepperHeading{
+        font-size: 24px;
+        color: #000;
+    }
+    .headingDescription{
+        font-size: 16px;
+        color: #fff;
+    }
+}
+.stepperContent{
+    background: #fff;
+    // width: 80%;
+    margin: 0 auto;
+    max-width: 1076px;
+}
+.footerButtonContainer {
+    background: #EFEFEF;
+    .footerButton{
+        margin: 30px auto 0px;
+        max-width: 1076px;
+        display: flex;
+        justify-content: flex-end;
+        background: #EFEFEF;
+        padding: 25px 0px;
+    }
+}
+

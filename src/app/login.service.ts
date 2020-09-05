@@ -22,4 +22,6 @@ export class LoginService {
   changePassReq(data: any) : Observable<any> {
     return this.http.put<any>('http://localhost:3001/changePassword', data);
   }
+
+  
 }

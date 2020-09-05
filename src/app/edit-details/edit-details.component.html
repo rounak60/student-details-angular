@@ -1,0 +1,31 @@
+ <div class="backButtonContainer"><button class = "back-button" (click)="goBack()"> &lt; back</button></div>
+<section>
+    <mat-horizontal-stepper linear #stepper>
+        <ng-container *ngFor = "let step of steps;index as i">
+            <mat-step label={{step.name}} [editable]="true">
+                <div class="stepperHeadingContainer"> 
+                    <h4 class="stepperHeading">{{step.heading}}</h4>
+                    <span class ="headingDescription">{{step.content}}</span>
+                </div>
+                <div class="stepperContent">
+                    <app-edit-stepper (continueButtonEnable)="enableContinue($event)" (restorePreviousData)="restoreData($event)" *ngIf = "i == 0"></app-edit-stepper>
+                </div>
+                <div class="stepperContent">
+                    <app-details (editClicked)="editAgain(stepper)" *ngIf = "i == 1"></app-details>
+                </div>
+                <div class="stepperContent">
+                    <app-details [hiddenEditIcon]="hiddenIcon" *ngIf = "i == (steps.length) - 1"></app-details>
+                </div>
+                <footer class="footerButtonContainer">
+                <div class="footerButton">
+                   <button class="stepperButton cancel" mat-button (click)="changeCanceledValue()">Cancel</button>
+                  <button type ="button" class="stepperButton" disabled="{{buttonDisabled}}" (click)="changeEditedValue()" *ngIf = "i == 0" mat-button matStepperNext>Continue</button>
+                  <button type ="button" class="stepperButton" (click)="editedValue()" *ngIf = "i == 1" mat-button matStepperNext>Submit</button>
+                  <button type ="button" class="stepperButton" (click)="goBack()" *ngIf = "i == ((steps.length) - 1)" mat-button matStepperNext>Done</button>
+                </div>
+                </footer>
+            </mat-step>
+        </ng-container>
+    </mat-horizontal-stepper>
+    
+</section> 

@@ -13,7 +13,7 @@
                 <div class="modal-header">
                     <h4 class="modal-title" id="modal-basic-title">Login</h4>
                     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                        <span aria-hidden="true">X</span>
+                        <img src="../../assets/icons/cancel.svg" alt="modal close">
                     </button>
                 </div>
                 <div class="modal-body">
@@ -45,13 +45,16 @@
                 <div class="modal-header">
                     <h4 class="modal-title" id="modal-basic-title">Forgot Password</h4>
                     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                        <span aria-hidden="true">X</span>
+                        <img src="../../assets/icons/cancel.svg" alt="modal close">
                     </button>
                 </div>
                 <div class="modal-body">
                     <div class="input-container">
                         <input type="text" class="inputText" name="email" formControlName="email"  required />
                         <span class="floating-label">Email</span>
+                        <div *ngIf="(validateForPassEmail.invalid && validateForPassEmail.touched) || validateForPassEmail.dirty">
+                            <p *ngIf="validateForPassEmail.errors?.pattern" class="error-message">Please provide a valid email address</p>
+                        </div>
                     </div>
                     <div class="input-container">
                         <input type="password" class="inputText" name="password" formControlName= "password" required />
@@ -79,13 +82,17 @@
             <div class="modal-header">
                 <h4 class="modal-title" id="modal-basic-title">Sign Up</h4>
                 <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                    <span aria-hidden="true">X</span>
+                    <img src="../../assets/icons/cancel.svg" alt="modal close">
                 </button>
             </div>
             <div class="modal-body">
                 <div class="input-container">
-                    <input type="text" class="inputText" name="email" formControlName="email"  required />
+                    <input [class.is-invalid]= "signupForm.get('email').invalid && signupForm.get('email').touched"
+                     type="text" class="inputText" name="email" formControlName="email"  required />
                     <span class="floating-label">Email</span>
+                    <div *ngIf="(validateEmail.invalid && validateEmail.touched) || validateEmail.dirty">
+                        <p *ngIf="validateEmail.errors?.pattern" class="error-message">Please provide a valid email address</p>
+                    </div>
                 </div>
                 <div class="input-container">
                     <input type="text" class="inputText" name="name" formControlName="name"  required />

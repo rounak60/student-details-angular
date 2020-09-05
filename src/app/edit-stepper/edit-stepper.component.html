@@ -1,0 +1,35 @@
+<form class="stepperEditForm" [formGroup]="stepperEditForm">
+    <div class="input-container">
+        <input type="name" class="inputText" (change)="valueChanged()" name="Name" formControlName="Name" required />
+        <label class="floating-label">Student Name</label>
+    </div>
+    <div class="input-container">
+        <input type="name" class="inputText" (change)="valueChanged()" name="Class" formControlName="Class" required />
+        <label class="floating-label">Class</label>
+    </div>
+    <div class="input-container">
+        <input type="text" class="inputText" (change)="valueChanged()" name="Division" formControlName="Division" required />
+        <label class="floating-label">Division</label>
+    </div>
+    <div class="input-container">
+        <input type="text" class="inputText" (change)="valueChanged()" name="Rank" formControlName="Rank" required />
+        <label class="floating-label">Rank</label>
+    </div>
+    <div class="input-container">
+        <input type="text" class="inputText" (change)="valueChanged()" name="Fee" formControlName="Fee" required />
+        <label class="floating-label">Fees</label>
+    </div>
+    <div class="input-container">
+        <input type="text" class="inputText" (change)="valueChanged()" name="DueDate" formControlName="DueDate" required />
+        <label class="floating-label">Due Date</label>
+    </div>
+    <div class="input-container">
+        <input type="number" class="inputText" (change)="valueChanged()" name="ContactNo" formControlName="ContactNo" required />
+        <label class="floating-label">Contact No</label>
+    </div>
+    <div class="input-container">
+        <input type="text" class="inputText" (change)="valueChanged()" name="Address" formControlName="Address" required />
+        <label class="floating-label">Address</label>
+    </div>
+</form>
+
