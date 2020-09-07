@@ -21,10 +21,10 @@
                 </div>
                 <footer class="footerButtonContainer">
                 <div class="footerButton">
-                   <button class="stepperButton cancel" mat-button (click)="changeCanceledValue()">Cancel</button>
-                  <button type ="button" class="stepperButton" disabled="{{buttonDisabled}}" (click)="changeEditedValue()" *ngIf = "i == 0" mat-button matStepperNext>Continue</button>
-                  <button type ="button" class="stepperButton" (click)="editedValue()" *ngIf = "i == 1" mat-button matStepperNext>Submit</button>
-                  <button type ="button" class="stepperButton" (click)="goBack()" *ngIf = "i == ((steps.length) - 1)" mat-button matStepperNext>Done</button>
+                    <button class="stepperButton cancel" mat-button (click)="changeCanceledValue()">Cancel</button>
+                    <button type ="button" class="stepperButton" disabled="{{buttonDisabled}}" (click)="changeEditedValue()" *ngIf = "i == 0" mat-button matStepperNext>Continue</button>
+                    <button type ="button" class="stepperButton" (click)="editedValue()" *ngIf = "i == 1" mat-button matStepperNext>Submit</button>
+                    <button type ="button" class="stepperButton" (click)="goBack()" *ngIf = "i == ((steps.length) - 1)" mat-button matStepperNext>Done</button>
                 </div>
                 </footer>
             </mat-step>
