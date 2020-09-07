@@ -1,6 +1,9 @@
  <div class="backButtonContainer"><button class = "back-button" (click)="goBack()"> &lt; back</button></div>
 <section>
     <mat-horizontal-stepper linear #stepper>
+        <ng-template matStepperIcon="edit">
+            <mat-icon role="img" class="mat-icon notranslate material-icons mat-icon-no-color ng-star-inserted" aria-hidden="true"></mat-icon>
+        </ng-template>
         <ng-container *ngFor = "let step of steps;index as i">
             <mat-step label={{step.name}} [editable]="true">
                 <div class="stepperHeadingContainer"> 
@@ -18,14 +21,13 @@
                 </div>
                 <footer class="footerButtonContainer">
                 <div class="footerButton">
-                   <button class="stepperButton cancel" mat-button (click)="changeCanceledValue()">Cancel</button>
-                  <button type ="button" class="stepperButton" disabled="{{buttonDisabled}}" (click)="changeEditedValue()" *ngIf = "i == 0" mat-button matStepperNext>Continue</button>
-                  <button type ="button" class="stepperButton" (click)="editedValue()" *ngIf = "i == 1" mat-button matStepperNext>Submit</button>
-                  <button type ="button" class="stepperButton" (click)="goBack()" *ngIf = "i == ((steps.length) - 1)" mat-button matStepperNext>Done</button>
+                    <button class="stepperButton cancel" mat-button (click)="changeCanceledValue()">Cancel</button>
+                    <button type ="button" class="stepperButton" disabled="{{buttonDisabled}}" (click)="changeEditedValue()" *ngIf = "i == 0" mat-button matStepperNext>Continue</button>
+                    <button type ="button" class="stepperButton" (click)="editedValue()" *ngIf = "i == 1" mat-button matStepperNext>Submit</button>
+                    <button type ="button" class="stepperButton" (click)="goBack()" *ngIf = "i == ((steps.length) - 1)" mat-button matStepperNext>Done</button>
                 </div>
                 </footer>
             </mat-step>
         </ng-container>
     </mat-horizontal-stepper>
-    
 </section> 

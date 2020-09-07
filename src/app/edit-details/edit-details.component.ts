@@ -17,8 +17,8 @@ export class EditDetailsComponent implements OnInit {
 
   editedDetail;
   cancelDetail;
-  hiddenIcon:boolean;
-  buttonDisabled:boolean = true;
+  hiddenIcon;
+  buttonDisabled = true;
   isOptional = false;
 
   constructor(private location: Location, private studentDetail : StudentsService ) { }
